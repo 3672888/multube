@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<meta name="author" content="KazuProg">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="google", content="notranslate">
+<link rel="icon" href="/favicon.ico">
+<title>MulTube Player - KazuProg</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135364727-1"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","UA-135364727-1");</script>
+<script>
+const VISITOR={"id":"H44NMxQa","nickname":"\u308f\u30db\u30fc","type":"guest"};
+//関数名省略or1行で書ける
+const KP = {
+	zP		:(num,count,str)=>(Array(count).join(str || '0')+num).slice(-count),
+	cE		: tagName	=> document.createElement(tagName),
+	dE		: element	=> element.parentNode.removeChild(element),
+	qs		: selector	=> document.querySelector(selector),
+	qsA		: selector	=> document.querySelectorAll(selector),
+	aEL		:(element,type,listener,option)=>(KP.isStr(element)?KP.qs(element):element).addEventListener(type,listener,option),
+	isNum	: val		=> typeof val === "number",
+	isStr	: val		=> typeof val === "string",
+	isObj	: val		=> typeof val === "object",
+	isFnc	: val		=> typeof val === "function",
+	isAry	: val		=> val instanceof Array,
+	isNumStr: val		=> !isNaN(val)&&val!=Infinity&&val!="",
+	isElem	: element	=> typeof element === "object" && 'tagName' in element,
+	rnd		:(min,max)	=> min+Math.floor(Math.random()*(max-min)),
+	Base64	:{
+		enc		: text => btoa(unescape(KP.URI.enc(text))),
+		dec		: text => KP.URI.dec(escape(atob(text))),
+	},
+	URI		:{
+		enc		: text => encodeURIComponent(text),
+		dec		: text => decodeURIComponent(text),
+	},
+};
+window.onerror = (msg, file, line, col, error) => {
+	if(true || location.hostname == "kazuprog.work"){
+		const f = new FormData();
+		f.append("ua",		navigator.userAgent);
+		f.append("url",		location.href);
+		f.append("file",	file);
+		f.append("pos",		`${line}:${col}`);
+		f.append("msg",		msg);
+		f.append("stack",	error.stack);
+		fetch('/_error/', {
+			method	: 'POST',
+			body	: f,
+		}).then(r=>r.text()).then(t=>console.log(t))
+		console.log("Send")
+	}
+};
+</script>
+<script src="/_assets/js/common.js"></script>
+<style>dl,h1,h2,h3,h4,h5,h6,ol,p,pre,ul{margin-top:0}address,dl,ol,p,pre,ul{margin-bottom:1rem}img,svg{vertical-align:middle}body,caption{text-align:left}button,hr,input{overflow:visible}pre,textarea{overflow:auto}article,aside,figcaption,figure,footer,header,hgroup,legend,main,nav,section{display:block}dd,h1,h2,h3,h4,h5,h6,label,legend{margin-bottom:.5rem}address,legend{line-height:inherit}progress,sub,sup{vertical-align:baseline}label,output{display:inline-block}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled),summary{cursor:pointer}*,::after,::before{box-sizing:border-box}html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff}[tabindex="-1"]:focus{outline:0!important}hr{box-sizing:content-box;height:0}abbr[data-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;border-bottom:0;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{font-style:normal}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-left:0}blockquote,figure{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:80%}sub,sup{position:relative;font-size:75%;line-height:0}sub{bottom:-.25em}sup{top:-.5em}a{color:#007bff;text-decoration:none;background-color:transparent}a:hover{color:#0056b3;text-decoration:underline}a:not([href]):not([tabindex]),a:not([href]):not([tabindex]):focus,a:not([href]):not([tabindex]):hover{color:inherit;text-decoration:none}a:not([href]):not([tabindex]):focus{outline:0}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em}img{border-style:none}svg{overflow:hidden}table{border-collapse:collapse}caption{padding-top:.75rem;padding-bottom:.75rem;color:#6c757d;caption-side:bottom}th{text-align:inherit}button{border-radius:0}button:focus{outline:dotted 1px;outline:-webkit-focus-ring-color auto 5px}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}select{word-wrap:normal}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{padding:0;border-style:none}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=date],input[type=datetime-local],input[type=month],input[type=time]{-webkit-appearance:listbox}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{width:100%;max-width:100%;padding:0;font-size:1.5rem;color:inherit;white-space:normal}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:none}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}summary{display:list-item}template{display:none}[hidden]{display:none!important}nav>ul>li{display:inline}nav>ul>li a{display:inline-block;color:#000;line-height:2.5rem;border:solid #000;border-width:0 1px 1px 1px;width:25%}nav>ul>li a:hover{background:#ff5}main{max-width:750px;margin-left:auto;margin-right:auto;margin-top:1rem;margin-bottom:1.5rem}body::after{content:'';position:fixed;z-index:-9;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,#bfd,#bdf)}article,section{padding-left:.5rem;padding-bottom:1rem;margin-top:1rem}section{border-style:dotted;border-color:#777;border-width:0 0 1px 1px;border-radius:0 0 0 1rem}article{padding:.5rem;background:#fff;text-align:left;box-shadow:0 3px 9px 0 rgba(0,0,0,.7);overflow:auto}article>h1,section>h2,section>h3,section>h4,section>h5,section>h6{margin-left:-.5rem;padding-left:.5rem;margin-right:-.5rem;padding-right:.5rem;margin-bottom:.5rem;text-align:left}article>h1{font-size:1.5 rem;background:linear-gradient(90deg,#8ff,#eee);margin-top:-.5rem}section>h2{font-size:1.17rem;background:linear-gradient(90deg,#8f8,#eee)}section>h3{font-size:1 rem;background:linear-gradient(90deg,#ff8,#eee)}section>h4{font-size:.83rem;background:linear-gradient(90deg,#f88,#eee)}section>h5{font-size:.67rem;background:linear-gradient(90deg,#f8f,#eee)}section>h6{font-size:.67rem;background:linear-gradient(90deg,#88f,#eee)}table{white-space:nowrap}.center{text-align:center!important;margin-left:auto;margin-right:auto}.bold{font-weight:900}.black{color:#000}.blue{color:#00f}.green{color:#0f0}.red{color:red}.cyan{color:#0ff}.magenta{color:#f0f}.yellow{color:#ff0}.white{color:#fff}.orange{color:#f70}.fixedbox{overflow:auto;box-shadow:0 0 5px 0 #000;display:inline-block;max-width:100%}.fixedbox.nostyle{box-shadow:none}.hidden{display:none!important}.border{border:solid 1px}.inline-block{display:inline-block}.indent{padding-left:1rem}.bold{font-weight:900}pre{background:#222;color:#fff;padding-left:1rem;overflow:auto;border-radius:1.2rem;font-family:monospace;position:relative}pre>div{position:absolute;top:3px;left:3px;background:#fff3;padding:0 1rem;border:solid 1px;border-radius:1rem 0 1rem 0}pre>code>a{color:#0ff}.ccenter{display:grid;place-items:center;margin-top:0}.ccenter>*{display:block}a.relation{display:block;margin:0 1rem 0 1rem;padding:1rem;border:solid 1px #000;font-weight:900;color:#333;background:#08f5;border-radius:1rem}.clearfix:after{content:"";clear:both;display:block}.kpbutton{border:solid 2px #7dd;border-radius:1rem;background:#9ff;text-align:center;font-size:1.5rem;margin:1rem;padding-left:1rem;padding-right:1rem}a.KPlink{width:300px;height:3.8em;display:inline-block;padding:.4em;padding-top:0;margin:.5em;border-radius:1rem;background:#9ff;color:#000;box-shadow:5px 5px 9px 4px rgba(255,127,255,.5);text-decoration:none;text-align:center}a.KPlink:hover{background:#7dd}a.KPlink>div{font-size:1.5rem}th{text-align:center;padding:0 1rem}a{cursor:pointer}p{margin-top:.5rem;margin-bottom:1.5rem}body,head{margin:0;padding:0}header{height:3rem;background:#aaa;text-align:left!important}header>span{font-size:2rem;margin:0;font-style:oblique;font-family:serif}header>div{float:right;display:block;top:0;text-align:right}#settings_btn{width:4rem;height:3rem;border:1px solid #000}div#players{background-color:#000;position:fixed;top:3rem;left:0;right:0;bottom:3rem}div#controls{height:3rem;position:fixed;left:0;right:0;bottom:0;background:#aaa;text-align:center}div#controls>button{border-radius:9rem;font-size:1.2rem;padding:.5rem}div#info{position:fixed;display:inline;right:0;bottom:0}div#settings{background-color:#000a;position:fixed;top:0;bottom:0;left:0;right:0;text-align:center}div#settings>div{text-align:left;padding:1rem;background:#fff;display:inline-block;max-width:100vw;max-height:100vh;overflow-y:scroll}div#settings>div>h2{margin:0}div#settings table th{text-align:center}div#settings table td:nth-child(1) input{width:8rem;margin:0}div#settings table td:nth-child(2) input{width:6rem;margin:0;text-align:right}div#settings table td:nth-child(3){text-align:center}div#settings table td:nth-child(3) input[type=number]{width:3rem;text-align:right}input[type=checkbox],label{cursor:pointer}div#overlay{position:fixed;display:flex;justify-content:center;align-items:center;top:0;left:0;right:0;bottom:3rem;background:#0007;z-index:9}div#overlay span{color:#fff;font-size:2rem;text-shadow:0 0 5px #000;border-radius:9em;padding:0 2rem;background:#0005;box-shadow:0 0 9px 9px #0005}</style>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="./script.js"></script>
+<meta name="description" content="複数のYouTube動画を一画面で同時に再生できるサービスです。他チャンネルとのコラボライブ配信のアーカイブを視聴する際に、それぞれの動画のタイミングを同期させることもできます。">
+<script data-cfasync="false" nonce="ea9d67cd-4085-40c4-9626-83acc9f9ef48">try{(function(w,d){!function(j,k,l,m){if(j.zaraz)console.error("zaraz is loaded twice");else{j[l]=j[l]||{};j[l].executed=[];j.zaraz={deferred:[],listeners:[]};j.zaraz._v="5884";j.zaraz._n="ea9d67cd-4085-40c4-9626-83acc9f9ef48";j.zaraz.q=[];j.zaraz._f=function(n){return async function(){var o=Array.prototype.slice.call(arguments);j.zaraz.q.push({m:n,a:o})}};for(const p of["track","set","debug"])j.zaraz[p]=j.zaraz._f(p);j.zaraz.init=()=>{var q=k.getElementsByTagName(m)[0],r=k.createElement(m),s=k.getElementsByTagName("title")[0];s&&(j[l].t=k.getElementsByTagName("title")[0].text);j[l].x=Math.random();j[l].w=j.screen.width;j[l].h=j.screen.height;j[l].j=j.innerHeight;j[l].e=j.innerWidth;j[l].l=j.location.href;j[l].r=k.referrer;j[l].k=j.screen.colorDepth;j[l].n=k.characterSet;j[l].o=(new Date).getTimezoneOffset();if(j.dataLayer)for(const t of Object.entries(Object.entries(dataLayer).reduce((u,v)=>({...u[1],...v[1]}),{})))zaraz.set(t[0],t[1],{scope:"page"});j[l].q=[];for(;j.zaraz.q.length;){const w=j.zaraz.q.shift();j[l].q.push(w)}r.defer=!0;for(const x of[localStorage,sessionStorage])Object.keys(x||{}).filter(z=>z.startsWith("_zaraz_")).forEach(y=>{try{j[l]["z_"+y.slice(7)]=JSON.parse(x.getItem(y))}catch{j[l]["z_"+y.slice(7)]=x.getItem(y)}});r.referrerPolicy="origin";r.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(j[l])));q.parentNode.insertBefore(r,q)};["complete","interactive"].includes(k.readyState)?zaraz.init():j.addEventListener("DOMContentLoaded",zaraz.init)}}(w,d,"zarazData","script");window.zaraz._p=async A=>new Promise(B=>{if(A){A.e&&A.e.forEach(C=>{try{const D=d.querySelector("script[nonce]"),E=D?.nonce||D?.getAttribute("nonce"),F=d.createElement("script");E&&(F.nonce=E);F.innerHTML=C;F.onload=()=>{d.head.removeChild(F)};d.head.appendChild(F)}catch(G){console.error(`Error executing script: ${C}\n`,G)}});Promise.allSettled((A.f||[]).map(H=>fetch(H[0],H[1])))}B()});zaraz._p({"e":["(function(w,d){})(window,document)"]});})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script></head><body>
+
+<header>
+	<span>MulTube Player</span>
+	<div>
+		<button class="live_hide" onclick="sync()">同期(ズレ:<span id="zure"></span>s)</button>
+		<button id="settings_btn" onclick="openSettings()">設定</button>
+	</div>
+</header>
+
+<div id="players"></div>
+
+<div id="controls">
+	<button class="live_hide" onclick="seekTo(-600)">&lt;10m</button>
+	<button class="live_hide" onclick="seekTo(- 60)">&lt; 1m</button>
+	<button class="live_hide" onclick="seekTo(-  5)">&lt; 5s</button>
+	<button onclick="toggle( )">Play/Pause</button>
+	<button class="live_hide" onclick="seekTo(   5)"> 5s&gt;</button>
+	<button class="live_hide" onclick="seekTo(  60)"> 1m&gt;</button>
+	<button class="live_hide" onclick="seekTo( 600)">10m&gt;</button>
+</div>
+
+<div id="settings">
+	<div>
+		<center><span style="font-size:1.5rem;">設定</span></center>
+		<span style="font-size:1.2rem;">動画リスト</span><br>
+		<table id="videoList" style="margin-left:1rem;">
+			<tr><th>動画ID</th><th>時間</th><th>音量</th></tr>
+		</table>
+		<button onclick="saveTiming()">現在のタイミングに合わせる</button>
+		<div style="text-align:right"><button onclick="share()">共有</button></div>
+		<br>
+		<label for="live_mode">
+			<input type="checkbox" id="live_mode">
+			ライブ配信モード
+		</label><br>
+		画質設定：
+		<select id="quality">
+			<option value="default">自動
+			<option value="highres">最高画質
+			<option value="hd1080">1080p
+			<option value="hd720">720p
+			<option value="large">480p
+			<option value="medium">360p
+			<option value="small">240p
+		</select><br>
+		再生位置：<input style="width:4rem" id="offset" type="number">秒<br>
+		自動同期：<input style="width:4rem" id="auto-sync" type="number">秒<br>
+		<br>
+		<a href="./usage.html" target="_blank">使い方</a>
+		　<a href="./history.html" target="_blank">更新履歴</a>
+		　<a href="/" target="_blank">トップページ</a><br>
+		<br>
+		<div style="text-align:right">
+			<button style="background:#f77" onclick="reset()">リセット</button>
+			<button onclick="closeSettings()">閉じる</button>
+		</div>
+	</div>
+</div>
+
+<div id="overlay" class="hidden">
+	<span>Loading...</span>
+</div>
+
+<script>
+	window.addEventListener('load',()=>{
+		onloadListener();
+	})
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9adeed1ce2174d508b6b7b4b2ad6be76","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>
